@@ -10,8 +10,6 @@ p {
     color: #2B2B2B;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
 }
 
 .judul_subsection{
@@ -147,8 +145,32 @@ button:hover {
 /* Education */
 
 #education {
-    margin-top: 60px;
+    background-color: #94caef;
+    padding-bottom: 80px;
+    padding-top: 40px;
+    background: linear-gradient(to bottom right, #001f3f, #3498db);
+    margin-top: 80px;
     margin-bottom: 60px;
+}
+
+.card {
+    background-color: white;
+    padding: 28px;
+    width: 28%;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.icon {
+    width: 30%;
+}
+
+
+/* Work */
+#work {
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 table {
@@ -178,13 +200,6 @@ tbody tr:nth-child(even) {
 tbody td {
     color: #2B2B2B;
 }
-
-/* Work */
-#work {
-    margin-top: 40px;
-    margin-bottom: 80px;
-}
-
 
 /* Footer */
 footer {

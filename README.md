@@ -25,11 +25,6 @@ git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
 2. Buka file 'LandingPage.html' untuk melihat hasil
 3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'
 
-## Hasil
-![Landing page](/src/img/screenshot/ss_aboutme.png)
-
-![Landing page](/src/img/screenshot/ss_landing.png)
-
 ## Landing Page
 
 Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk log in, foto, dan footer. Struktur dalam tag 'body' adalah sebagai berikut :
