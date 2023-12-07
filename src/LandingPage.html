@@ -4,45 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Landing Page - Tazkia</title>
 </head>
 
-<body>
+<body style="background-color: rgb(237, 234, 234)">
 
     <header>
-        <h1>Welcome</h1>
-        <nav>
-            <a href="LandingPage.html" >Home</a>
-            <a href="AboutMe.html" >About</a>
+
+        <div class="main-header">
+            <h1>Welcome</h1>
+        </div>
+       
+        <nav class="main-nav">
+            <ul>
+                <li><a href="LandingPage.html" >Home</a></li>
+                <li><a href="AboutMe.html" >About</a></li>
+            </ul>
         </nav>
+
     </header>
    
     <main>
-        <h2>Welcome to Our Landing Page</h2>
+        <div class="container login">
 
-        <p>Please log in to access other features</p>
-    
-        <form action="">
-            <label for="nama">Username</label>
-            <input type="text" id="nama" name="nama" required>
-            <br/>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <br/>
-            <button type="submit">Login</button>
-        </form>
+            <div class="row row-1">
+                <div class="column">
+                    <h2>Welcome to Our Landing Page</h2>
+                    <p>Please log in to access other features</p>
+                </div>
+            </div>
 
-        <figure>
-            <img id="computer" src="img/computer.avif" width="20%" length="20%">
-        </figure>
+            <div class ="row row-2">
+                <div class="column">
+
+                    <div class="box">
+                        <form action="">
+                            <label for="nama">Username</label>
+                            <br/>
+                            <input type="text" id="nama" name="nama" required>
+                            <br/>
+                            <label for="password">Password</label>
+                            <br/>
+                            <input type="password" id="password" name="password" required>
+                            <br/>
+                            <button type="submit">Login</button>
+                        </form>
+                    </div>
+                
+                    <figure>
+                        <img id="computer" src="img/computer.avif">
+                    </figure>
+
+                    <p><i>
+                        As far as we can discern, the sole purpose of human existence is to kindle <br/>
+                        a light in the darkness of mere being. - CGJ
+                    </i></p>
+                </div>
+            </div>
+
+        </div>
     </main>
        
 
     <footer>
-        <p>As far as we can discern, the sole purpose of human existence is to kindle 
-            a light in the darkness of mere being. - CGJ
-        </p>
-        <p>&copy; 2023 BTJ Academy</p>
+        <p style="color:white">&copy; 2023 BTJ Academy</p>
     </footer>
 
 </body>

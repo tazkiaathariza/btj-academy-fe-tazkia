@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+/* Font */
+* {
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+
+p {
+    color: #2B2B2B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+/* Header */
+body {
+    margin: 0;
+}
+
+.main-header {
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+}
+
+.main-nav {
+    text-align: center;
+    background-color: #2B2B2B;
+    padding: 10px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    color: #3498db;
+    background-color: white;
+}
+
+
+/* Container */
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.column {
+    padding: 10px;
+}
+
+.row-1 {
+    justify-content: flex-start;
+}
+
+.row-2 {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.row-3 {
+    justify-content: space-between;
+}
+
+.login {
+    background-color:white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+/* Form */
+
+.box {
+    width: 35%;
+    height: 35%;
+    padding: 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    position: relative;
+    left: 30%;
+
+}
+
+input {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 8px;
+    border-color:rgb(208, 208, 208);
+    width: 80%;
+}
+
+button{
+    background-color: #3498db;
+    border: #3498db;
+    color:white;
+    font-size: 16px; 
+    padding: 9px 19px;
+    border-radius: 8px;
+    width: 80%;
+    margin: 10px
+}
+
+button:hover {
+    background-color: #94caef;
+    color:#2B2B2B;
+}
+
+#computer {
+    width: 30%;
+}
+
+/* Footer */
+footer {
+    background-color: #2B2B2B;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
