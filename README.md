@@ -1,22 +1,34 @@
-# Basic Web Development - Task 1 - Tazkia Athariza
+# Basic Web Development - Task 2 - Tazkia Athariza
 
-Folder ini merupakan tugas pertama dari kelas Basic Web Development. Pada tugas kali ini, file hanya dibuat menggunakan HTML5. Struktur dari folder adalah sebagai berikut :
+Folder ini merupakan task kedua dari materi Basic Web Development. Pada tugas kali ini, file dibuat menggunakan HTML5 dan CSS3. Struktur dari folder adalah sebagai berikut :
 
 ```
 btj-academy-fe-tazkia
 |-- src/
+|  |-- css/
+|    |-- style_aboutme.css
+|    |-- style_landing.css
+|  |-- html/
+|    |-- AboutMe.html
+|    |-- LandingPage.html
 |  |-- img/
 |    |-- computer.avif
 |    |-- myphoto.jpg
-|  |-- AboutMe.html
-|  |-- LandingPage.html
 |-- README.md
 ```
 
-Penggunaan :
-1. Download atau clone repository ini
+### Penggunaan :
+1. Download atau clone repository ini :
+```
+git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
+```
 2. Buka file 'LandingPage.html' untuk melihat hasil
 3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'
+
+## Hasil
+![Landing page](/src/img/screenshot/ss_aboutme.png)
+
+![Landing page](/src/img/screenshot/ss_landing.png)
 
 ## Landing Page
 
@@ -30,7 +42,9 @@ Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk
     - form (untuk log in)
     - figure (untuk media berupa gambar)
 3. Footer :
-    - p (untuk quotes dan hak cipta)
+    - p (hak cipta)
+
+File CSS eksternal dipanggil pada tag 'head'.
 
 ## About Me
 
@@ -55,4 +69,6 @@ Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang di
         - h3 (untuk judul section) 
         - p (untuk isi)
 3. Footer :
-    - p (untuk quotes dan hak cipta)
+    - p (untuk quotes)
+
+File CSS eksternal dipanggil pada tag 'head'.
