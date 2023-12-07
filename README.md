@@ -1,6 +1,6 @@
 # Basic Web Development - Task 2 - Tazkia Athariza
 
-Folder ini merupakan task kedua dari materi Basic Web Development. Pada tugas kali ini, file dibuat menggunakan HTML5 dan CSS3. Struktur dari folder adalah sebagai berikut :
+Folder ini merupakan task kedua dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5 dan CSS3. Struktur dari folder adalah sebagai berikut :
 
 ```
 btj-academy-fe-tazkia
@@ -12,7 +12,9 @@ btj-academy-fe-tazkia
 |    |-- AboutMe.html
 |    |-- LandingPage.html
 |  |-- img/
+|    |-- screenshot
 |    |-- computer.avif
+|    |-- icon.svg
 |    |-- myphoto.jpg
 |-- README.md
 ```
@@ -39,7 +41,11 @@ Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk
 3. Footer :
     - p (hak cipta)
 
-File CSS eksternal dipanggil pada tag 'head'.
+File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
+1. Header : diberi warna dan diatur agar tulisannya berada di tengah. Terdapat hover pada navigation bar.
+2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll).
+3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
+4. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_landing.css).
 
 ## About Me
 
@@ -56,14 +62,27 @@ Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang di
         - p (untuk isi)
     - section education:
         - h3 (untuk judul section) 
-        - table (untuk tabel)
+        - div class="card" (untuk membuat card)
     - section work:
         - h3 (untuk judul section) 
-        - ol (untuk list ordered)
+        - table (untuk tabel)
     - section motto :
         - h3 (untuk judul section) 
         - p (untuk isi)
 3. Footer :
     - p (untuk quotes)
 
-File CSS eksternal dipanggil pada tag 'head'.
+File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
+1. Header : diberi warna dan diatur agar tulisannya berada di tengah. Terdapat hover pada navigation bar.
+2. Main : membuat container, row, dan column untuk mengatur tata letak.
+    - Section introduction : dalam 1 container, terdapat 1 row dan 2 kolom (kolom foto dan tulisan). Styling warna, ukuran font, button, button hover, dll.
+    - Section education : menggunakan card.
+    - Section work : menggunakan tabel.
+    - Section motto : menggunakan box (seperti card namun beda ukuran).
+3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
+4. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_aboutme.css).
+
+## Hasil
+![Landing page](/src/img/screenshot/ss_aboutme.png)
+
+![Landing page](/src/img/screenshot/ss_landing.png)
