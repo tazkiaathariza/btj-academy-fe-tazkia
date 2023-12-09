@@ -8,38 +8,33 @@
     <title>Landing Page - Tazkia</title>
 </head>
 
-<body style="background-color: rgb(237, 234, 234)">
+<body>
+    <div class="container main-container">
 
-    <!-- Header -->
-    <header>
-
-        <div class="main-header">
-            <h1>Welcome</h1>
-        </div>
-
-        <nav class="main-nav">
-            <ul>
+        <!-- Header -->
+        <header class="container">
+            <span class="main-header">
+              <img src="../img/flower-pic.svg" alt="Logo" id="logo">
+              <h2>Welcome</h2>
+            </span>
+            <nav class="main-nav">
+              <ul>
                 <li><a href="LandingPage.html" >Home</a></li>
                 <li><a href="AboutMe.html" >About</a></li>
-            </ul>
-        </nav>
+              </ul>
+            </nav>
+          </header>
 
-    </header>
-   
-    <!-- Main content of the page -->
-    <main class="container login">
+
+        <!-- Main content of the page -->
+        <main class="container">
        
             <div class="row row-1">
-                <div class="column">
-                    <h2>Welcome to Our Landing Page</h2>
-                    <p>Please log in to access other features</p>
-                </div>
-            </div>
-
-            <div class ="row row-2">
-                <div class="column">
-
+                <div class="column part1">
                     <div class="box">
+                        <h2>Welcome to Our Landing Page</h2>
+                        <p>Please log in to access other features</p>
+
                         <form action="">
                             <label for="nama">Username</label>
                             <br/>
@@ -52,24 +47,30 @@
                             <button type="submit">Login</button>
                         </form>
                     </div>
-                
+
+                </div>
+
+                <div class="column part2">
                     <figure>
-                        <img id="computer" src="../img/computer.avif">
+                        <img id="flower" src="../img/flower-pic.svg" alt="flower">
                     </figure>
 
                     <p><i>
-                        As far as we can discern, the sole purpose of human existence is to kindle <br/>
-                        a light in the darkness of mere being. - CGJ
+                        As far as we can discern, the sole purpose of human existence is to kindle
+                        a light in the darkness of mere being. <br/> - Carl Gustav Jung
                     </i></p>
-                </div>
+                </div>     
             </div>
 
-    </main>
+        <!-- Footer -->
+
+        <footer>
+            <p style="color:#2B2B2B">&copy; 2023 BTJ Academy</p>
+        </footer>
+   
+    </div>
        
-    <!-- Footer -->
-    <footer>
-        <p style="color:white">&copy; 2023 BTJ Academy</p>
-    </footer>
+
 
 </body>
 </html>
