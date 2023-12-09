@@ -10,39 +10,39 @@
 
 <body>
 
+  <div class="container main-container">
+
   <!-- Header -->
-  <header>
-
-    <div class="main-header">
-        <h1>About Me</h1>
-    </div>
-   
+  <header class="container">
+    <span class="main-header">
+      <img src="../img/flower-pic.svg" alt="Logo" id="logo">
+      <h2>About Me</h2>
+    </span>
     <nav class="main-nav">
-        <ul>
-            <li><a href="LandingPage.html">Home</a></li>
-            <li><a href="AboutMe.html">About</a></li>
-        </ul>
+      <ul>
+        <li><a href="LandingPage.html">Home</a></li>
+        <li><a href="AboutMe.html">About</a></li>
+      </ul>
     </nav>
-
   </header>
 
   <!-- Main content of the page -->
   <main>
 
     <!-- Introduction -->
-    <section id="introduction">
-      <div class="container"></div>
+    <section id="introduction" class="container">
+ 
       <div class="row">
 
-        <div class="column1">
+        <div class="column part1">
           <figure>
             <img id="myphoto" src="../img/myphoto.jpg">
           </figure>
         </div>
 
-        <div class="column2">
+        <div class="column part2">
           <div id="judul">
-            <h2>Hi! It's me, Tazkia Athariza Dhivara</h2>
+            <h2 class="judul_subsection">Hi! It's me, Tazkia Athariza Dhivara</h2>
             <p>Let me introduce myself</p>
           </div>
           <hr width="90%"/>
@@ -61,16 +61,19 @@
         </div>
 
         </div>
-      </div>
+ 
     </section>
   
     <!-- Motto -->
-    <section id="motto" class="container">
-      <div class ="row row-2">
-        <div class="column">
-          <div class="box">
-              <p class="judul_subsection">My life motto is..</p>
-              <h3><i>Always strive to make a useful impact no matter how small</i></h3>
+    <section id="motto">
+      <div class="container">
+        <div class ="row row-2">
+          <div class="column">
+            <div class="box">
+                <p>My life motto is..</p>
+                <h1 class="judul_subsection"><i>Always strive to make a useful impact 
+                  <br/> no matter how small</i></h1>
+            </div>
           </div>
         </div>
       </div>
@@ -164,8 +167,10 @@
 
   <!-- Footer -->
   <footer>
-    <p style="color:white">&copy; 2023 BTJ Academy</p>
+    <p style="color:#AB3C41">&copy; 2023 BTJ Academy</p>
   </footer>
+
+</div>
 
 </body>
 </html>

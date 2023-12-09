@@ -3,6 +3,7 @@
 :root {
     --primary-color:  #73101E;
     --secondary-color: #AB3C41;
+    --pink: #fcf5f3;
     --main-text-color: #2B2B2B;
 }
 
@@ -21,7 +22,7 @@ p {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 18px;
 }
 
 .box h2 {
@@ -120,13 +121,13 @@ body {
 /* Form */
 
 .box {
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 20px;
     width: 85%;
     border-radius: 15px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     align-items: center;
-    background-color: #fcf5f3
+    background-color: var(--pink);
 
 }
 
@@ -134,7 +135,7 @@ input {
     padding: 8px;
     margin: 10px;
     border-radius: 8px;
-    border-color:rgb(208, 208, 208);
+    border-color:white;
     width: 85%;
 }
 
@@ -162,7 +163,9 @@ button:hover {
 
 .part2 p {
     font-size: 14px;
+    line-height: 20px;
 }
+
 /* Footer */
 footer {
     padding: 1px;
