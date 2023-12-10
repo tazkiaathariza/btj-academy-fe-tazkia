@@ -3,8 +3,8 @@
 :root {
     --primary-color:  #73101E;
     --secondary-color: #AB3C41;
-    --pink: #fcf5f3;
     --tertiary-color: #ef5b62;
+    --pink: #fcf5f3;
     --main-text-color: #2B2B2B;
 }
 
@@ -83,6 +83,10 @@ header {
     border-top: 5px solid var(--secondary-color);
 }
 
+#pembatas {
+    display: none;
+}
+
 
 /* Container */
 
@@ -158,6 +162,7 @@ body {
 #myphoto {
     width: 90%;
     border-radius:100%;
+    box-shadow: 0 0 12px var(--secondary-color);
 }
 
 #judul {
@@ -179,10 +184,21 @@ button a {
     text-decoration: none;
 }
 
+button a:visited {
+    color: white;
+}
+
 button:hover {
     background-color: var(--tertiary-color);
     color: white;
     transition: background-color 0.5s ease;
+}
+
+mark {
+    background-color: var(--tertiary-color);
+    color: white;
+    border-radius: 2px;
+    padding: 2px;
 }
 
 /* Motto */
@@ -295,30 +311,37 @@ footer {
 @media (max-width: 768px) {
 
     body {
-        background-color: rgb(255, 255, 255);
+        background-color:  white;
     }
 
     /* Header */
     header {
       flex-direction: column;
       text-align: center;
-      background-color: #ffffff;
-      color: rgb(205, 24, 24);
+      background-color: var(--primary-color);
+      border-radius: none;
       border-radius: 0px;
+      width: auto;
     }
 
+    header.container {
+        margin: 0px;
+        padding: 0px;
+    }
     .main-header {
+     display: inline;
       flex-direction: column;
       align-items: center;
-    
+      margin: 0px;
+      color: white;
     }
 
     #logo {
-      display: none;
+        display: none;
     }
 
     .main-nav {
-      margin-top: 15px;
+      margin-top: 8px;
     }
 
     .main-nav ul {
@@ -326,18 +349,40 @@ footer {
     }
 
     .main-nav li {
-      margin: 10px 0;
+      margin: 0px;
+    }
+
+    .main-nav a {
+        color: white;
+    }
+
+    .main-nav a:hover {
+        color:var(--pink);
+        transition: color 0.5s ease;
+    }
+    
+    .main-nav a.active {
+        color: white;
+        border-top: 5px solid var(--pink);
+    }
+
+    #pembatas {
+        display: inline;
+        color: white
     }
 
     /* Container */
 
     .main-container {
-        margin-top: 0%;
-        margin-bottom: 0%;
+       padding: 5px;
+       box-shadow: none;
+       margin: 0px;
+       width: 100%;
+       border-radius: 0px;
     }
 
     .container {
-        width: 100%;
+        width: 99%;
         margin: 0 auto;
     }
 
@@ -362,8 +407,12 @@ footer {
     }
     
     .part1 {
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
         width: 100%;
+        padding: 0px;
+        margin-top: 20px;
     }
 
     .box {
@@ -372,6 +421,24 @@ footer {
         border-radius: 5px;
         align-items: center;
         background-color: #ffffff;
+    }
+
+    /* Intro */
+    #myphoto {
+        width: 65%;
+        border-radius: 100%;
+    }
+
+    /* Motto */
+
+    #motto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px; 
+        background-color: white;
+        background-image: none;
+        margin: 0px;
     }
 
     /* Education */
@@ -387,3 +454,4 @@ footer {
     }
 
 }
+
