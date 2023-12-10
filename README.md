@@ -1,6 +1,6 @@
-# Basic Web Development - Task 2 - Tazkia Athariza
+# Basic Web Development - Task 3 - Tazkia Athariza
 
-Folder ini merupakan task kedua dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5 dan CSS3. Struktur dari folder adalah sebagai berikut :
+Folder ini merupakan task ketiga dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5 dan CSS3. Desain yang dibuat berbeda dari desain pada task sebelumnya. Selain itu, website juga sudah responsif. Struktur dari folder adalah sebagai berikut :
 
 ```
 btj-academy-fe-tazkia
@@ -13,7 +13,7 @@ btj-academy-fe-tazkia
 |    |-- LandingPage.html
 |  |-- img/
 |    |-- screenshot
-|    |-- computer.avif
+|    |-- background.svg
 |    |-- icon.svg
 |    |-- myphoto.jpg
 |-- README.md
@@ -24,12 +24,19 @@ btj-academy-fe-tazkia
 ```
 git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
 ```
-2. Buka file 'LandingPage.html' untuk melihat hasil
-3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'
+2. Buka file 'LandingPage.html' untuk melihat hasil (diutamakan menggunakan chrome).
+3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'.
 
-## Landing Page
+## Landing Page (Foto preview, penjelasan HTML dan CSS Task 3)
 
-Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk log in, foto, dan footer. Struktur dalam tag 'body' adalah sebagai berikut :
+Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk log in, foto, dan footer. 
+
+Preview landing page after modification:
+![Landing page](/src/img/screenshot/landing_after.png)
+It's already responsive!
+![Landing page - responsive](/src/img/screenshot/responsive_landing.png)
+
+Struktur dalam tag 'body' adalah sebagai berikut :
 
 1. Header :
     - H1 (untuk sambutan)
@@ -42,14 +49,46 @@ Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk
     - p (hak cipta)
 
 File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
-1. Header : diberi warna dan diatur agar tulisannya berada di tengah. Terdapat hover pada navigation bar.
-2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll).
+1. Header : Tulisan dibuat sejajar, dan terdapat perubahan warna pada menu yang hover atau aktif.
+2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
+```
+display: flex;
+```
 3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
-4. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_landing.css).
+4. Mengatur responsivitas web dengan menggunakan 'media query' (untuk ukuran layar device kecil).
+5. Memberikan animasi dan transisi pada komponen di dalam 'main'. 
 
-## About Me
+```
+/* Salah satu contoh animasi yang digunakan dalam landing page : */
 
-Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang diri sendiri, riwayat pendidikan, riwayat pekerjaan, dan motto. Struktur dalam tag 'body' adalah sebagai berikut :
+@keyframes scaleUp {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+/* penggunaan */
+
+.part2 {
+    animation: scaleUp 1.5s ease-in-out; 
+}
+```
+6. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_landing.css).
+
+
+## About Me (Foto preview, penjelasan HTML dan CSS Task 3)
+Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang diri sendiri, riwayat pendidikan, riwayat pekerjaan, dan motto. 
+
+Preview about me page after modification:
+![About Me page](/src/img/screenshot/aboutme_after.png)
+![Edu page](/src/img/screenshot/education_after.png)
+It's already responsive!
+![About Me page - responsive](/src/img/screenshot/responsive_aboutme.png)
+
+Struktur dalam tag 'body' adalah sebagai berikut :
 
 1. Header :
     - H1 (untuk sambutan)
@@ -73,16 +112,36 @@ Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang di
     - p (untuk quotes)
 
 File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
-1. Header : diberi warna dan diatur agar tulisannya berada di tengah. Terdapat hover pada navigation bar.
-2. Main : membuat container, row, dan column untuk mengatur tata letak.
+1. Header : Tulisan dibuat sejajar, dan terdapat perubahan warna pada menu yang hover atau aktif.
+2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
     - Section introduction : dalam 1 container, terdapat 1 row dan 2 kolom (kolom foto dan tulisan). Styling warna, ukuran font, button, button hover, dll.
+    - Section motto : menggunakan background-image. Tulisan diletakkan di tengah.
     - Section education : menggunakan card.
     - Section work : menggunakan tabel.
-    - Section motto : menggunakan box (seperti card namun beda ukuran).
 3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
-4. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_aboutme.css).
+4. Mengatur responsivitas web dengan menggunakan 'media query' (untuk ukuran layar device kecil).
+```
+    @media (max-width: 768px) { 
+        ....
+    }
+```
+5. Memberikan animasi dan transisi pada komponen di dalam 'main'. 
 
-## Hasil
-![Landing page](/src/img/screenshot/ss_aboutme.png)
+```
+/* Salah satu contoh animasi yang digunakan dalam about me page : */
 
-![Landing page](/src/img/screenshot/ss_landing.png)
+@keyframes slideRight {
+    0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+}
+/* penggunaan */
+
+.part2 {
+    animation: scaleUp 1.5s ease-in-out; 
+}
+```
+6. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_aboutme.css).
