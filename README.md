@@ -1,6 +1,6 @@
 # Basic Web Development - Task 3 - Tazkia Athariza
 
-Folder ini merupakan task ketiga dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5 dan CSS3. Desain yang dibuat berbeda dari desain pada task sebelumnya. Selain itu, website juga sudah responsif. Struktur dari folder adalah sebagai berikut :
+Folder ini merupakan task ketiga dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5 dan CSS3. Desain yang dibuat berbeda dari desain pada task sebelumnya. Selain itu, website juga sudah responsif pada device ukuran kecil. Struktur dari folder ini adalah sebagai berikut :
 
 ```
 btj-academy-fe-tazkia
@@ -24,7 +24,7 @@ btj-academy-fe-tazkia
 ```
 git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
 ```
-2. Buka file 'LandingPage.html' untuk melihat hasil (diutamakan menggunakan chrome).
+2. Buka file 'LandingPage.html' untuk melihat hasil (disarankan menggunakan chrome).
 3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'.
 
 ## Landing Page (Foto preview, penjelasan HTML dan CSS Task 3)
@@ -50,12 +50,12 @@ Struktur dalam tag 'body' adalah sebagai berikut :
     - p (hak cipta)
 
 File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
-1. Header : Tulisan dibuat sejajar, dan terdapat perubahan warna pada menu yang hover atau aktif.
-2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
+1. Header : Membuat posisi tulisan menjadi sejajar, dan mengubah warna pada menu yang hover atau aktif.
+2. Main : Membuat container, row, dan column untuk mengatur tata letak. Form juga diberi style (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
 ```
 display: flex;
 ```
-3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
+3. Footer : Memberi warna dan mengatur agar tulisan berada di tengah.
 4. Mengatur responsivitas web dengan menggunakan 'media query' (untuk ukuran layar device kecil).
 5. Memberikan animasi dan transisi pada komponen di dalam 'main'. 
 
@@ -85,8 +85,13 @@ Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang di
 
 Preview about me page after modification:
 ![About Me page](/src/img/screenshot/aboutme_after.png)
-Education section :
+Preview 'motto section' after modification :
+![Edu page](/src/img/screenshot/motto_after.png)
+Preview 'education section' after modification :
 ![Edu page](/src/img/screenshot/education_after.png)
+Preview 'work section' after modification :
+![Edu page](/src/img/screenshot/work_after.png)
+
 It's already responsive!
 
 ![About Me page - responsive](/src/img/screenshot/responsive_aboutme.png)
@@ -115,13 +120,13 @@ Struktur dalam tag 'body' adalah sebagai berikut :
     - p (untuk quotes)
 
 File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
-1. Header : Tulisan dibuat sejajar, dan terdapat perubahan warna pada menu yang hover atau aktif.
-2. Main : membuat container, row, dan column untuk mengatur tata letak. Form juga diberi styling (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
+1. Header : Membuat posisi tulisan menjadi sejajar, dan mengubah warna pada menu yang hover atau aktif.
+2. Main : Membuat container, row, dan column untuk mengatur tata letak. Untuk mempermudah pengaturan, digunakan flexbox.
     - Section introduction : dalam 1 container, terdapat 1 row dan 2 kolom (kolom foto dan tulisan). Styling warna, ukuran font, button, button hover, dll.
     - Section motto : menggunakan background-image. Tulisan diletakkan di tengah.
     - Section education : menggunakan card.
     - Section work : menggunakan tabel.
-3. Footer : diberi warna dan diatur agar tulisan berada di tengah.
+3. Footer : Memberi warna dan mengatur agar tulisan berada di tengah.
 4. Mengatur responsivitas web dengan menggunakan 'media query' (untuk ukuran layar device kecil).
 ```
     @media (max-width: 768px) { 
