@@ -34,6 +34,7 @@ Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk
 Preview landing page after modification:
 ![Landing page](/src/img/screenshot/landing_after.png)
 It's already responsive!
+
 ![Landing page - responsive](/src/img/screenshot/responsive_landing.png)
 
 Struktur dalam tag 'body' adalah sebagai berikut :
@@ -84,8 +85,10 @@ Merupakan halaman web sederhana yang memuat foto diri, nama, paragraf tentang di
 
 Preview about me page after modification:
 ![About Me page](/src/img/screenshot/aboutme_after.png)
+Education section :
 ![Edu page](/src/img/screenshot/education_after.png)
 It's already responsive!
+
 ![About Me page - responsive](/src/img/screenshot/responsive_aboutme.png)
 
 Struktur dalam tag 'body' adalah sebagai berikut :
