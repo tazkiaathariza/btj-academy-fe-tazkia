@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_landing.css" />
+    <script src="../script/script.js"></script>
     <title>Landing Page - Tazkia</title>
 </head>
 
@@ -36,16 +37,27 @@
                         <h2>Welcome to Our Landing Page</h2>
                         <p style="margin-bottom: 20px;">Please log in to access other features</p>
 
-                        <form action="">
+                        <form action="" onsubmit="">
                             <label for="nama">Username</label>
                             <br/>
-                            <input type="text" id="nama" name="nama" placeholder="Insert your username" required>
+                            <div class="userInput">
+                                <input type="text" id="nama" name="nama" placeholder="Insert your username" required>
+                                <br/>
+                                <p id="pesanNama" class="error"></p>
+                            </div>
                             <br/>
                             <label for="password">Password</label>
                             <br/>
-                            <input type="password" id="password" name="password" placeholder="Insert your password" required>
+                            <div class="userInput">
+                                <input type="password" id="password" name="password" oninput="validatePassword()" placeholder="Insert your password" required>
+                                <span class="showPassword" onclick="showPassword()">👁️</span>
+                                <br/>
+                                <span id="pesanPassword" class="error"></span>
+                            </div>
                             <br/>
-                            <button type="submit">Login</button>
+                            <button type="submit" id="loginButton" onclick="alertSapa()" href="AboutMe.html">
+                                Login
+                            </button>
                         </form>
                     </div>
 
