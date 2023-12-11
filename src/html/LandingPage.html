@@ -36,17 +36,29 @@
                         <h2>Welcome to Our Landing Page</h2>
                         <p style="margin-bottom: 20px;">Please log in to access other features</p>
 
-                        <form action="">
+                        <form action="" onsubmit="">
                             <label for="nama">Username</label>
                             <br/>
-                            <input type="text" id="nama" name="nama" placeholder="Insert your username" required>
+                            <div class="userInput">
+                                <input type="text" id="nama" name="nama" placeholder="Insert your username"  oninput="validateName()" required>
+                                <br/>
+                                <p id="pesanNama" class="pesanError"></p>
+                            </div>
                             <br/>
                             <label for="password">Password</label>
                             <br/>
-                            <input type="password" id="password" name="password" placeholder="Insert your password" required>
+                            <div class="userInput">
+                                <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" required>
+                                <span class="showPassword" onclick="showPassword()">👁️</span>
+                                <br/>
+                                <p id="pesanPassword" class="pesanError"></p>
+                            </div>
                             <br/>
-                            <button type="submit">Login</button>
+                            <button type="submit" id="loginButton" onclick="redirect()" href="AboutMe.html">
+                                Login
+                            </button>
                         </form>
+
                     </div>
 
                 </div>
@@ -71,7 +83,7 @@
    
     </div>
        
-
+    <script src="../script/script.js"></script>
 
 </body>
 </html>
