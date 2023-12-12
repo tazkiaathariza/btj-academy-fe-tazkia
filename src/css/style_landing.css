@@ -228,6 +228,8 @@ button:hover {
     margin: 0px;
 }
 
+/* To show password in a readable text */
+
 .showPassword {
     position: relative;
     right: 45px;
