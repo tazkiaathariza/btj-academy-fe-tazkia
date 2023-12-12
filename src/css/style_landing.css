@@ -54,6 +54,8 @@ header {
     margin-right: 10px;
     max-width: 50px;
     max-height: 50px;
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
 }
 
 .main-nav ul {

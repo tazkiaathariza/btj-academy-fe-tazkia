@@ -9,7 +9,7 @@ function validateName() {
         pesanError.style.color = "red"  // change the color into red
     } else if (nameInput.length > 30) { // maximum length validation
         pesanError.innerHTML = "Should be less than 30 character."
-        pesanError.style.color = "red"
+        pesanError.style.color = "red" 
     } else {
         pesanError.innerHTML = "Everything's OK" // message if everything is correct
         pesanError.style.color = "green" 
@@ -23,54 +23,47 @@ function validatePassword() {
     let pesanError = "" // declare message
 
     if (passwordInput.length < 6) { // minimum length validation
-        pesanError += "Minimum 6 character. "
+        pesanError += "6 character (minimum), "
     }
 
     if (passwordInput.length > 30) { // maximum length validation
-        pesanError = "Should be less than 30 character. "
+        pesanError = "less than 30 character, "
     }
 
     if (!/\d/.test(passwordInput)) {
-        pesanError += "Minimum 1 number. "; // number validation
+        pesanError += "1 number, "; // number validation
     }
 
     if (!/[a-z]/.test(passwordInput)) { // lowercase validation
-        pesanError += "Minimum 1 lowercase letter. ";
+        pesanError += "1 lowercase letter, ";
     }
     
     if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
-        pesanError += "Minimum 1 uppercase letter. ";
+        pesanError += "1 uppercase letter, ";
     }
     
     if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput)) { // symbol validation
-        pesanError += "Minimum 1 symbol. ";
+        pesanError += "1 symbol, ";
     }
 
+    pesanError = pesanError.slice(0, -2);
 
     if(pesanError.length < 2) {
         document.getElementById("pesanPassword").innerText = "Everything's OK";
         document.getElementById("pesanPassword").style.color = "green";
     } else {
-        document.getElementById("pesanPassword").innerText = pesanError;
+        document.getElementById("pesanPassword").innerText = "Should be " + pesanError;
         document.getElementById("pesanPassword").style.color = "red";
     }
 }
 
+// function to spin logo in navbar
+let degree = 0;
 
-// Function to show password on input box
-
-function showPassword() {
-    let passwordInput = document.getElementById("password");
-
-    // check input type
-    if (passwordInput.type === "password") { // if input type is still password (encrypted)
-      passwordInput.type = "text"; // change into text
-      return passwordInput
-    } else { // if input type is already 'text'
-      passwordInput.type = "password"; // change into password
-      return passwordInput
-    }
-    
+function spinLogo() {
+    let logoFlower = document.getElementById("logo");
+    degree += 360;
+    logoFlower.style.transform =`rotate(${degree}deg)`;
 }
 
 

@@ -14,7 +14,7 @@
         <!-- Header -->
         <header class="container">
             <div class="main-header">
-              <img src="../img/flower-pic.svg" alt="Logo" id="logo">
+              <img src="../img/flower-pic.svg" alt="Logo" id="logo" onclick="spinLogo()">
               <h2>Welcome</h2>
             </div>
             <nav class="main-nav">
@@ -36,7 +36,7 @@
                         <h2>Welcome to Our Landing Page</h2>
                         <p style="margin-bottom: 20px;">Please log in to access other features</p>
 
-                        <form action="" onsubmit="">
+                        <form id ="formLogin" onsubmit="formValidation(event)">
                             <label for="nama">Username</label>
                             <br/>
                             <div class="userInput">
@@ -48,17 +48,18 @@
                             <label for="password">Password</label>
                             <br/>
                             <div class="userInput">
-                                <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" required>
+                                <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
                                 <span class="showPassword" onclick="showPassword()">👁️</span>
                                 <br/>
                                 <p id="pesanPassword" class="pesanError"></p>
+                                <p id="reminderCapslock" class="pesanError" style="margin-top: 2px;"></p>
                             </div>
                             <br/>
-                            <button type="submit" id="loginButton" onclick="redirect()" href="AboutMe.html">
+                            <button type="submit" id="loginButton">
                                 Login
                             </button>
                         </form>
-
+                        <!-- onclick="redirect()" href="AboutMe.html" -->
                     </div>
 
                 </div>
