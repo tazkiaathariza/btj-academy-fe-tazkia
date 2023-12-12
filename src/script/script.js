@@ -73,6 +73,19 @@ function showPassword() {
 
 }
 
+// function to remind user if they use capslock
+
+function remindCapslock(event){
+    let pesanCaps = document.getElementById("reminderCapslock");
+
+    if (event.getModifierState('CapsLock')){
+        pesanCaps.innerHTML = "Your capslock is on";
+        pesanCaps.style.color = "orange";
+    } else {
+        pesanCaps.innerHTML = null; // if user doesn't use caps
+    }
+}
+
 // Function to validate form
 
 function formValidation(event) {

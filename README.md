@@ -12,10 +12,6 @@ btj-academy-fe-tazkia
 |    |-- AboutMe.html
 |    |-- LandingPage.html
 |  |-- img/
-|    |-- screenshot
-|    |-- background.svg
-|    |-- icon.svg
-|    |-- myphoto.jpg
 |-- README.md
 ```
 
@@ -31,33 +27,42 @@ git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
 
 Merupakan halaman web sederhana yang memuat sambutan, navigation bar, form untuk log in, foto, dan footer. 
 
-Preview landing page after modification:
-![Landing page](/src/img/screenshot/landing_after.png)
-It's already responsive!
+File eksternal JS disertakan pada file html dengan script :
+    ```
+    <script src="../script/script.js"></script>
+    ```
+
+### 1. Rotasi 360 derajat pada logo di navbar
+
+Untuk memberikan efek rotasi pada gambar, langkahnya adalah sebagai berikut :
+
+1. Membuat function 'spinLogo' pada file script.js
+    ```
+    let degree = 0; // declare the degree
+    function spinLogo() {
+        let logoFlower = document.getElementById("logo"); // get logo by id
+        degree += 360; // make it spin 360 degree
+        logoFlower.style.transform =`rotate(${degree}deg)`; // transform when logo's clicked
+    }
+    ```
+2. Memanggil fungsi tersebut pada tag html yang akan berjalan ketika logo diklik
+    ```
+    <img src="../img/flower-pic.svg" alt="Logo" id="logo" onclick="spinLogo()">
+    ```
+3. Hasil :
+    ![Landing page](/src/img/screenshot/landing_after.png)
 
 ![Landing page - responsive](/src/img/screenshot/responsive_landing.png)
 
 Struktur dalam tag 'body' adalah sebagai berikut :
 
-1. Header :
-    - H1 (untuk sambutan)
-    - Navigation bar (untuk melihat menu)
-2. Main :
-    - H2 dan p (untuk sambutan)
-    - form (untuk log in)
-    - figure (untuk media berupa gambar)
-3. Footer :
-    - p (hak cipta)
 
 File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut perubahan yang dilakukan:
 1. Header : Membuat posisi tulisan menjadi sejajar, dan mengubah warna pada menu yang hover atau aktif.
 2. Main : Membuat container, row, dan column untuk mengatur tata letak. Form juga diberi style (ukuran box input, warna button, ukuran item pada form, dll). Untuk mempermudah pengaturan, digunakan flexbox.
 ```
-display: flex;
-```
-3. Footer : Memberi warna dan mengatur agar tulisan berada di tengah.
-4. Mengatur responsivitas web dengan menggunakan 'media query' (untuk ukuran layar device kecil).
-5. Memberikan animasi dan transisi pada komponen di dalam 'main'. 
+<script src="../script/script.js"></script>
+ ```
 
 ```
 /* Salah satu contoh animasi yang digunakan dalam landing page : */
@@ -66,8 +71,6 @@ display: flex;
     0% {
       transform: scale(0);
     }
-    100% {
-      transform: scale(1);
     }
 }
 
@@ -77,7 +80,6 @@ display: flex;
     animation: scaleUp 1.5s ease-in-out; 
 }
 ```
-6. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_landing.css).
 
 
 ## About Me (Foto preview, penjelasan HTML dan CSS Task 3)
@@ -138,18 +140,14 @@ File CSS eksternal dipanggil pada tag 'head'. Dengan menggunakan CSS, berikut pe
 ```
 /* Salah satu contoh animasi yang digunakan dalam about me page : */
 
-@keyframes slideRight {
-    0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(0);
-      }
-}
-/* penggunaan */
+        if(pesanError.length < 2) { // respond if password's correct
+            document.getElementById("pesanPassword").innerText = "Everything's OK"; 
+            document.getElementById("pesanPassword").style.color = "green";
+        } else { // respond if password isn't correct
+            document.getElementById("pesanPassword").innerText = "Should be " + pesanError;
+            document.getElementById("pesanPassword").style.color = "red";
+        }
+    }
 
-.part2 {
-    animation: scaleUp 1.5s ease-in-out; 
-}
-```
+    ```
 6. Untuk selengkapnya, dapat dilihat pada file CSS (../src/css/style_aboutme.css).
