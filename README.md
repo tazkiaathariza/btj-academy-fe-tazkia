@@ -170,7 +170,7 @@ Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu 
     <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
     ```
 3. Hasil :
-    ![Pass](/src/img/screenshot/panduanpasswordcaps.png)
+    ![Pass](/src/img/screenshot/panduanpassswordcaps.png)
 
 ### 5. Pengingat jika user menggunakan capslock
 
@@ -194,7 +194,7 @@ Ketika user mulai typing dan menggunakan capslock, maka akan muncul reminder di 
    <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
     ```
 3. Hasil :
-    ![Capslock](/src/img/screenshot/lpanduanpasswordcaps.png)
+    ![Capslock](/src/img/screenshot/panduanpassswordcaps.png)
 
 ### 6. Panduan mengisi username
 
