@@ -48,26 +48,68 @@ function validatePassword() {
 
     pesanError = pesanError.slice(0, -2);
 
-    if(pesanError.length < 2) {
-        document.getElementById("pesanPassword").innerText = "Everything's OK";
+    if(pesanError.length < 2) { // respond if password's correct
+        document.getElementById("pesanPassword").innerText = "Everything's OK"; 
         document.getElementById("pesanPassword").style.color = "green";
-    } else {
+    } else { // respond if password isn't correct
         document.getElementById("pesanPassword").innerText = "Should be " + pesanError;
         document.getElementById("pesanPassword").style.color = "red";
     }
 }
 
-// function to spin logo in navbar
-let degree = 0;
+// Function to show password on input box
 
-function spinLogo() {
-    let logoFlower = document.getElementById("logo");
-    degree += 360;
-    logoFlower.style.transform =`rotate(${degree}deg)`;
+function showPassword() {
+    let passwordInput = document.getElementById("password");
+
+    // check input type
+    if (passwordInput.type === "password") { // if input type is still password (encrypted)
+      passwordInput.type = "text"; // change into text
+      return passwordInput
+    } else { // if input type is already 'text'
+      passwordInput.type = "password"; // change into password
+      return passwordInput
+    }
+
 }
 
+// Function to validate form
 
-// redirect (still not working. Will fix this later)
-function redirect() {
-    window.location.replace("../html/AboutMe.html");
+function formValidation(event) {
+    event.preventDefault(); // prevent when user to click submit
+
+    console.log("Form submitted!"); // just checking
+
+    let nameInput = document.getElementById("nama").value;
+    let passwordInput = document.getElementById("password").value;
+    let nameError = "";
+    let passwordError = "";
+
+    if (nameInput.trim() == "") { // check name
+        nameError = "Please fill your name correctly";
+    }
+
+    if (passwordInput.trim() === "") { // check password
+        passwordError = "Please fill your password correctly";
+    }
+
+    if (nameError !== "" || passwordError !== "") { // respond when form isn't filled properly
+        document.getElementById("pesanNama").innerHTML = nameError;
+        document.getElementById("pesanNama").style.color = "red";
+        document.getElementById("pesanPassword").innerHTML = passwordError;
+        document.getElementById("pesanPassword").style.color = "red";
+    } else { // respond if form already filled properly
+        alert("Welcome to my world," + " " + nameInput)
+        location.replace("../html/AboutMe.html"); // redirect to aboutme page
+    }
+
+}
+
+// function to spin logo in navbar
+
+let degree = 0; // declare the degree
+function spinLogo() {
+    let logoFlower = document.getElementById("logo"); 
+    degree += 360; // make it spin 360 degree
+    logoFlower.style.transform =`rotate(${degree}deg)`; // transform when logo's clicked
 }
