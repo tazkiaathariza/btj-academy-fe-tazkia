@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_landing.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Landing Page - Tazkia</title>
 </head>
 
@@ -14,7 +15,7 @@
         <!-- Header -->
         <header class="container">
             <div class="main-header">
-              <img src="../img/flower-pic.svg" alt="Logo" id="logo" onclick="spinLogo()">
+              <img src="../img/flower-pic.svg" alt="Logo" id="logo">
               <h2>Welcome</h2>
             </div>
             <nav class="main-nav">
@@ -40,7 +41,7 @@
                             <label for="nama">Username</label>
                             <br/>
                             <div class="userInput">
-                                <input type="text" id="nama" name="nama" placeholder="Insert your username"  oninput="validateName()" required>
+                                <input type="text" id="nama" name="nama" placeholder="Insert your username" required>
                                 <br/>
                                 <p id="pesanNama" class="pesanError"></p>
                             </div>
@@ -48,8 +49,8 @@
                             <label for="password">Password</label>
                             <br/>
                             <div class="userInput">
-                                <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
-                                <span class="showPassword" onclick="showPassword()">👁️</span>
+                                <input type="password" id="password" name="password" placeholder="Insert your password" onkeydown="remindCapslock(event)" required>
+                                <span class="showPassword">👁️</span>
                                 <br/>
                                 <p id="pesanPassword" class="pesanError"></p>
                                 <p id="reminderCapslock" class="pesanError" style="margin-top: 2px;"></p>
@@ -83,7 +84,8 @@
    
     </div>
        
-    <script src="../script/script.js"></script>
+    <!-- <script src="../script/script.js"></script> -->
+    <script src="../script/index.js"></script>
 
 </body>
 </html>
