@@ -124,5 +124,5 @@ let degree = 0; // declare the degree
 function spinLogo() {
     let logoFlower = document.getElementById("logo"); 
     degree += 360; // make it spin 360 degree
-    logoFlower.style.transform =`rotate(${degree}deg)`; // transform when logo's clicked
+    logoFlower.style.transform =`rotate(${degree}deg)`; // transform when logo's clicked.
 }
