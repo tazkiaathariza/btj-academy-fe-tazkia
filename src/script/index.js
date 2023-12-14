@@ -7,7 +7,7 @@ $(document).ready(function() {
         let pesanError = $("#pesanNama");
 
         if (nameInput.length < 2) { // minimum length validation
-            pesanError.text("Minimum 2 character.") // insert some line in pesanError
+            pesanError.text("Minimum 2 character.") // insert a line in pesanError
             pesanError.css("color", "red")  // change the color into red
         } else if (nameInput.length > 30) { // maximum length validation
             pesanError.text("Should be less than 30 character.")
@@ -17,7 +17,6 @@ $(document).ready(function() {
             pesanError.css("color", "green")
         }
     });
-
 
     // password validation & capslock reminder
 
@@ -45,12 +44,8 @@ $(document).ready(function() {
             if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
                 pesanError += "1 uppercase letter, ";
             }
-            
-            if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput)) { // symbol validation
-                pesanError += "1 symbol, ";
-            }
-
-            pesanError = pesanError.slice(0, -2);
+        
+            pesanError = pesanError.slice(0, -2); // delete the last ","
             let pesanPassword = $("#pesanPassword")
 
             if(pesanError.length < 2) { // respond if password's correct
@@ -72,10 +67,10 @@ $(document).ready(function() {
             }
         }
 
-    })
+    });
 
+    // show password
 
-    // show password (error)
     $(".showPassword").on("click", function(){
         let passwordInput = $("#password");
         let inputType = passwordInput.attr("type");
@@ -85,7 +80,53 @@ $(document).ready(function() {
         } else {
             passwordInput.attr("type", "password");;     
         }
-    })
+    });
+
+    // form validation
+
+    $("#formLogin").on("submit", function(event){
+        event.preventDefault();
+
+        console.log("Form submitted!");
+
+        let nameInput = $("#nama").val();
+        let passwordInput = $("#password").val();
+        let pesanNama = $("#pesanNama");
+        let pesanPassword = $("#pesanPassword");
+       
+        if(nameInput == ""){ // check name
+            pesanNama.text("Please fill your name correctly")
+            pesanNama.css("color", "red")
+        }
+
+        if(passwordInput == ""){ // check password
+            pesanPassword.text("Please fill your password correctly")
+            pesanPassword.css("color", "red")
+        }
+
+        if(pesanPassword.text() === "Everything's OK" && pesanNama.text() === "Everything's OK"){
+            let url = "https://dummyjson.com/auth/login"
+            $.ajax({
+                type: "POST",
+                url: url,
+                contentType: "application/json",
+                data: JSON.stringify ({
+                    username: nameInput,
+                    password: passwordInput,
+                }),
+                success: function(response) {  // Status 200, show alert and redirect
+                  console.log(response);
+                  alert("Welcome to my world," + " " + nameInput);
+                  location.replace("../html/AboutMe.html");
+                },
+                error: function(error) { // status 400
+                  console.log(error);
+                  alert("Login failed. Please, insert the right username or password");
+                }
+              });
+        } 
+
+    });
 
     // spin logo
 
@@ -98,6 +139,8 @@ $(document).ready(function() {
 
 });
 
-
-
-
+// just checking the list of user
+fetch('https://dummyjson.com/users')
+.then(res => res.json())
+.then(console.log);
+            
