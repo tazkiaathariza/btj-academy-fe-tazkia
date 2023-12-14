@@ -19,73 +19,71 @@ $(document).ready(function() {
     });
 
 
-    // password validation
+    // password validation & capslock reminder
 
-    $("#password").on("input", function(){
-        let passwordInput = $("#password").val();
-        let pesanError = "";
+    $("#password").on({
+        input: function(){
+            let passwordInput = $("#password").val();
+            let pesanError = "";
 
-        if (passwordInput.length < 6) { // minimum length validation
-            pesanError += "6 character (minimum), "
-        }
+            if (passwordInput.length < 6) { // minimum length validation
+                pesanError += "6 character (minimum), "
+            }
 
-        if (passwordInput.length > 30) { // maximum length validation
-            pesanError = "less than 30 character, "
-        }
-    
-        if (!/\d/.test(passwordInput)) {
-            pesanError += "1 number, "; // number validation
-        }
-    
-        if (!/[a-z]/.test(passwordInput)) { // lowercase validation
-            pesanError += "1 lowercase letter, ";
-        }
+            if (passwordInput.length > 30) { // maximum length validation
+                pesanError = "less than 30 character, "
+            }
         
-        if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
-            pesanError += "1 uppercase letter, ";
-        }
+            if (!/\d/.test(passwordInput)) {
+                pesanError += "1 number, "; // number validation
+            }
         
-        if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput)) { // symbol validation
-            pesanError += "1 symbol, ";
-        }
+            if (!/[a-z]/.test(passwordInput)) { // lowercase validation
+                pesanError += "1 lowercase letter, ";
+            }
+            
+            if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
+                pesanError += "1 uppercase letter, ";
+            }
+            
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput)) { // symbol validation
+                pesanError += "1 symbol, ";
+            }
 
-        pesanError = pesanError.slice(0, -2);
-        let pesanPassword = $("#pesanPassword")
+            pesanError = pesanError.slice(0, -2);
+            let pesanPassword = $("#pesanPassword")
 
-        if(pesanError.length < 2) { // respond if password's correct
-            pesanPassword.text("Everything's OK")
-            pesanPassword.css("color", "green")
-        } else { // respond if password isn't correct
-            pesanPassword.text("Should be " + pesanError)
-            pesanPassword.css("color", "red")
+            if(pesanError.length < 2) { // respond if password's correct
+                pesanPassword.text("Everything's OK")
+                pesanPassword.css("color", "green")
+            } else { // respond if password isn't correct
+                pesanPassword.text("Should be " + pesanError)
+                pesanPassword.css("color", "red")
+            }
+        },
+        keydown: function(e){ // capslock reminder
+            let pesanCaps = $("#reminderCapslock");
+            
+            if (event.getModifierState('CapsLock')){
+                pesanCaps.text("Your capslock is on");
+                pesanCaps.css("color", "orange");
+            } else {
+                pesanCaps.text(null); // if user doesn't use caps
+            }
         }
 
     })
 
-    // capslock reminder (sebelumnya works, tapi tiba2 gak works lagi)
-
-    $("#password").on("keydown", function(event){
-        let pesanCaps = $("#reminderCapslock");
-        
-        if (event.getModifierState('CapsLock')){
-            pesanCaps.text("Your capslock is on");
-            pesanCaps.css("color", "orange");
-        } else {
-            pesanCaps.text(null); // if user doesn't use caps
-        }
-
-    });
 
     // show password (error)
     $(".showPassword").on("click", function(){
-        let password = $("#password");
-    
-        if (password.type === "password"){
-            password.type = "text";
-            return password;
+        let passwordInput = $("#password");
+        let inputType = passwordInput.attr("type");
+
+        if (inputType === "password"){
+            passwordInput.attr("type", "text");
         } else {
-            password.type = "password";
-            return password;
+            passwordInput.attr("type", "password");;     
         }
     })
 
@@ -99,7 +97,6 @@ $(document).ready(function() {
     })
 
 });
-
 
 
 
