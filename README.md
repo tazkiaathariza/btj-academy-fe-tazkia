@@ -163,7 +163,7 @@ Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu 
 
 Hasil :
 
-![Pass](/src/img/screenshot/panduanpassswordcaps.png)
+![Pass](/src/img/screenshot/panduanpassswordcaps2.png)
 
 5. Panduan mengisi username
 
@@ -223,7 +223,7 @@ Bila user berhasil submit, maka akan langsung muncul alert dan otomatis redirect
 
 Hasil :
 
-![Alert](/src/img/screenshot/alert.png)
+![Alert](/src/img/screenshot/alert2.png)
 
 ### Update Halaman About Me
 
