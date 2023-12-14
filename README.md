@@ -1,6 +1,6 @@
-# Basic Web Development - Task 4 - Tazkia Athariza
+# Basic Web Development - Task 5 - Tazkia Athariza
 
-Folder ini merupakan task keempat dari materi Basic Web Development. Pada task kali ini, file dibuat menggunakan HTML5, CSS3, dan javascript. Struktur dari folder ini adalah sebagai berikut :
+Folder ini merupakan task kelima dari materi Basic Web Development. Pada task kelima, file dibuat menggunakan HTML5, CSS3, javascript, dan library jQuery. Struktur dari folder ini adalah sebagai berikut :
 
 ```
 btj-academy-fe-tazkia
@@ -12,7 +12,8 @@ btj-academy-fe-tazkia
 |    |-- AboutMe.html
 |    |-- LandingPage.html
 |  |-- script/
-|    |-- script.js
+|    |-- index.js (untuk jQuery)
+|    |-- script.js (untuk code javascript biasa)
 |  |-- img/
 |-- README.md
 ```
@@ -25,214 +26,205 @@ git clone https://github.com/tazkiaathariza/btj-academy-fe-tazkia.git
 2. Buka file 'LandingPage.html' untuk melihat hasil (disarankan menggunakan chrome).
 3. Pada navigation bar, tekan 'About' untuk melihat halaman 'AboutMe'.
 
-## Penjelasan script (foto preview dan penjelasan)
+## Penjelasan index.js (penjelasan dan foto preview)
 
-Penjelasan kali ini berfokus tentang javascript. Untuk penjelasan mengenai CSS dan HTML, bisa dilihat di README pada branch sebelumnya (web-basic-day1, web-basic-day2, dan web-basic-day3). 
+Penjelasan kali ini berfokus tentang jquery. Penjelasan mengenai CSS, HTML, dan javascript bisa dilihat di README pada branch sebelumnya (web-basic-day1, web-basic-day2, dst). 
 
-File eksternal JS disertakan pada file html dengan script :
+File eksternal JS disertakan pada akhir file html dengan script :
+
     ```
-    <script src="../script/script.js"></script>
+    <script src="../script/index.js"></script>
+    ```
+Jquery CDN disertakan langsung pada tag head HTML :
+
+    ```
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     ```
 
-### 1. Rotasi 360 derajat pada logo di navbar
+### Update script JS menggunakan jQuery!
 
-Untuk memberikan efek rotasi pada gambar, langkahnya adalah sebagai berikut :
+1. Spin logo
+    Untuk memberikan efek rotasi pada gambar, codenya sebagai berikut :
 
-1. Membuat function 'spinLogo' pada file script.js
     ```
-    let degree = 0; // declare the degree
-    function spinLogo() {
-        let logoFlower = document.getElementById("logo"); // get logo by id
-        degree += 360; // make it spin 360 degree
-        logoFlower.style.transform =`rotate(${degree}deg)`; // transform when logo's clicked
-    }
+    let degree = 0;
+    $("#logo").on("click", function(){
+        degree += 360; 
+        $("#logo").css("transform", `rotate(${degree}deg)`);
+    })
     ```
-2. Memanggil fungsi tersebut pada tag html yang akan berjalan ketika logo diklik
-    ```
-    <img src="../img/flower-pic.svg" alt="Logo" id="logo" onclick="spinLogo()">
-    ```
-3. Hasil :
+
+    Hasil :
     ![Rotation](/src/img/screenshot/rotation.png)
 
-### 2. Validasi form
+2. Validasi form
+    Ketika form masih kosong dan user klik button 'Log In', maka akan muncul validasi di bawah box input.
 
-Ketika form masih kosong dan user klik button 'Log In', maka akan muncul validasi di bawah box input. Langkah :
-
-1. Membuat fungsi
     ```
-    function formValidation(event) {
-        event.preventDefault(); // prevent when user to click submit
-        console.log("Form submitted!"); // just checking
-        let nameInput = document.getElementById("nama").value;
-        let passwordInput = document.getElementById("password").value;
-        let nameError = "";
-        let passwordError = "";
+    $("#formLogin").on("submit", function(event){
+        event.preventDefault();
 
-        if (nameInput.trim() == "") { // check name
-            nameError = "Please fill your name correctly";
-        }
-        if (passwordInput.trim() === "") { // check password
-            passwordError = "Please fill your password correctly";
+        console.log("Form submitted!");
+
+        let nameInput = $("#nama").val();
+        let passwordInput = $("#password").val();
+        let pesanNama = $("#pesanNama");
+        let pesanPassword = $("#pesanPassword");
+       
+        if(nameInput == ""){ // check name
+            pesanNama.text("Please fill your name correctly")
+            pesanNama.css("color", "red")
         }
 
-        if (nameError !== "" || passwordError !== "") { // respond when form isn't filled properly
-            document.getElementById("pesanNama").innerHTML = nameError;
-            document.getElementById("pesanNama").style.color = "red";
-            document.getElementById("pesanPassword").innerHTML = passwordError;
-            document.getElementById("pesanPassword").style.color = "red";
-        } else { // respond if form already filled properly
-            alert("Welcome to my world," + " " + nameInput)
-            location.replace("../html/AboutMe.html"); // redirect to aboutme page
+        if(passwordInput == ""){ // check password
+            pesanPassword.text("Please fill your password correctly")
+            pesanPassword.css("color", "red")
         }
-    }
+
+    });
     ```
-2. Memanggil fungsi dalam tag yang akan berjalan ketika user melakukan submit
-    ```
-    <form id ="formLogin" onsubmit="formValidation(event)" novalidate>
-    ```
-3. Hasil :
+    Hasil :
     ![Landing page](/src/img/screenshot/formvalidation.png)
 
-### 3. Fitur show password
+3. Fitur show password
 
-Agar bisa menampilkan password sebagai teks, langkahnya adalah sebagai berikut :
+Agar bisa menampilkan password sebagai teks. Code :
 
-1. Membuat function show password
     ```
-    function showPassword() {
-    let passwordInput = document.getElementById("password"); // get password by id
+    $(".showPassword").on("click", function(){
+        let passwordInput = $("#password"); // get password by id
+        let inputType = passwordInput.attr("type");
 
-    // check input type
-    if (passwordInput.type === "password") { // if input type is still password (encrypted)
-      passwordInput.type = "text"; // change into text
-      return passwordInput
-    } else { // if input type is already 'text'
-      passwordInput.type = "password"; // change into password
-      return passwordInput
-    }
-    }
-    ```
-2. Memanggil fungsi tersebut di icon 'eye' yang akan berjalan ketika icon diklik
-    ```
-    <span class="showPassword" onclick="showPassword()">👁️</span>
-    ```
-3. Hasil :
-    ![Show](/src/img/screenshot/showpass.png)
-
-### 4. Panduan mengisi password
-
-Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu user. User akan diingatkan bila password harus berisi minimal 6 karakter, 1 simbol, 1 angka, 1 lowercase, dan 1 uppercase. Langkah :
-
-1. Membuat fungsi validasi password
-    ```
-    function validatePassword() {
-        let passwordInput = document.getElementById("password").value // take value from box input "password"
-        let pesanError = "" // declare message
-
-        if (passwordInput.length < 6) { // minimum length validation
-            pesanError += "6 character (minimum), "
-        }
-
-        if (passwordInput.length > 30) { // maximum length validation
-            pesanError = "less than 30 character, "
-        }
-
-        if (!/\d/.test(passwordInput)) {
-            pesanError += "1 number, "; // number validation
-        }
-
-        if (!/[a-z]/.test(passwordInput)) { // lowercase validation
-            pesanError += "1 lowercase letter, ";
-        }
-        
-        if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
-            pesanError += "1 uppercase letter, ";
-        }
-        
-        if (!/[!@#$%^&*(),.?":{}|<>]/.test(passwordInput)) { // symbol validation
-            pesanError += "1 symbol, ";
-        }
-
-        // menghapus koma terakhir
-        pesanError = pesanError.slice(0, -2);
-
-        if(pesanError.length < 2) { // respond if password's correct
-            document.getElementById("pesanPassword").innerText = "Everything's OK"; 
-            document.getElementById("pesanPassword").style.color = "green";
-        } else { // respond if password isn't correct
-            document.getElementById("pesanPassword").innerText = "Should be " + pesanError;
-            document.getElementById("pesanPassword").style.color = "red";
-        }
-    }
-    ```
-2. Memanggil fungsi yang akan berjalan saat user typing password
-    ```
-    <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
-    ```
-3. Hasil :
-    ![Pass](/src/img/screenshot/panduanpassswordcaps.png)
-
-### 5. Pengingat jika user menggunakan capslock
-
-Ketika user mulai typing dan menggunakan capslock, maka akan muncul reminder di bawah box input. Langkah :
-
-1. Membuat fungsi remindCapslock
-    ```
-    function remindCapslock(event){
-        let pesanCaps = document.getElementById("reminderCapslock"); // get by id
-
-        if (event.getModifierState('CapsLock')){
-            pesanCaps.innerHTML = "Your capslock is on";
-            pesanCaps.style.color = "orange";
+        if (inputType === "password"){ // if input type is still password (encrypted)
+            passwordInput.attr("type", "text"); // change into tex
         } else {
-            pesanCaps.innerHTML = null; // if user doesn't use caps
+            passwordInput.attr("type", "password");;     
         }
-    }
+    });
     ```
-2. Memanggil fungsi yang akan berjalan saat user typing password
-    ```
-   <input type="password" id="password" name="password" placeholder="Insert your password" oninput="validatePassword()" onkeydown="remindCapslock(event)" required>
-    ```
-3. Hasil :
-    ![Capslock](/src/img/screenshot/panduanpassswordcaps.png)
 
-### 6. Panduan mengisi username
+Hasil :
+![Show](/src/img/screenshot/showpass.png)
+
+5. Panduan mengisi password dan capslock reminder
+
+Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu user. User akan diingatkan bila password harus berisi minimal 6 karakter, 1 angka, 1 lowercase, dan 1 uppercase. User juga akan diingatkan bila menggunakan capslock. Code :
+
+    ```
+     $("#password").on({
+        input: function(){
+            let passwordInput = $("#password").val();
+            let pesanError = "";
+
+            if (passwordInput.length < 6) { // minimum length validation
+                pesanError += "6 character (minimum), "
+            }
+
+            if (passwordInput.length > 30) { // maximum length validation
+                pesanError = "less than 30 character, "
+            }
+        
+            if (!/\d/.test(passwordInput)) {
+                pesanError += "1 number, "; // number validation
+            }
+        
+            if (!/[a-z]/.test(passwordInput)) { // lowercase validation
+                pesanError += "1 lowercase letter, ";
+            }
+            
+            if (!/[A-Z]/.test(passwordInput)) { // uppercase validation
+                pesanError += "1 uppercase letter, ";
+            }
+        
+            pesanError = pesanError.slice(0, -2); // delete the last ","
+            let pesanPassword = $("#pesanPassword")
+
+            if(pesanError.length < 2) { // respond if password's correct
+                pesanPassword.text("Everything's OK")
+                pesanPassword.css("color", "green")
+            } else { // respond if password isn't correct
+                pesanPassword.text("Should be " + pesanError)
+                pesanPassword.css("color", "red")
+            }
+        },
+        keydown: function(e){ // capslock reminder
+            let pesanCaps = $("#reminderCapslock");
+            
+            if (event.getModifierState('CapsLock')){
+                pesanCaps.text("Your capslock is on");
+                pesanCaps.css("color", "orange");
+            } else {
+                pesanCaps.text(null); // if user doesn't use caps
+            }
+        }
+
+    });
+    ```
+
+Hasil :
+
+![Pass](/src/img/screenshot/panduanpassswordcaps.png)
+
+5. Panduan mengisi username
 
 Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu user. User akan diingatkan bila username harus lebih dari 2 karakter dan maksimal 30 karakter. Langkah :
 
-1. Membuat fungsi validasi nama
     ```
-    function validateName() {
-        let nameInput = document.getElementById("nama").value // take value from box input "nama"
-        let pesanError = document.getElementById("pesanNama") // will manipulate element with this Id
+        $("#nama").on("input", function() {
+        let nameInput = $("#nama").val();
+        let pesanError = $("#pesanNama");
 
         if (nameInput.length < 2) { // minimum length validation
-            pesanError.innerHTML = "Minimum 2 character." // insert some line in pesanError
-            pesanError.style.color = "red"  // change the color into red
+            pesanError.text("Minimum 2 character.") // insert a line in pesanError
+            pesanError.css("color", "red")  // change the color into red
         } else if (nameInput.length > 30) { // maximum length validation
-            pesanError.innerHTML = "Should be less than 30 character."
-            pesanError.style.color = "red" 
+            pesanError.text("Should be less than 30 character.")
+            pesanError.css("color", "red")
         } else {
-            pesanError.innerHTML = "Everything's OK" // message if everything is correct
-            pesanError.style.color = "green" 
+            pesanError.text("Everything's OK") // message if everything is correct
+            pesanError.css("color", "green")
         }
-    }   
+    });
     ```
-2. Memanggil fungsi yang akan berjalan saat user typing username
-    ```
-    <input type="text" id="nama" name="nama" placeholder="Insert your username"  oninput="validateName()" required>
-    ```
-3. Hasil :
-    ![Validasi Nama](/src/img/screenshot/panduannama.png)
 
-### 7. Alert dan Redirect
+Hasil :
+![Validasi Nama](/src/img/screenshot/panduannama.png)
 
-Bila user berhasil submit, maka akan langsung muncul alert dan otomatis redirect ke halaman AboutMe.
+### Tambahkan penggunaan fake API dan redirect ke halaman About Me!
 
-1. Pada fungsi formValidation, terdapat perintah berikut yang memungkinkan munculnya alert untuk menyapa user dan redirect ke halaman aboutme.
+Bila user berhasil submit, maka akan langsung muncul alert dan otomatis redirect ke halaman AboutMe. Username dan password harus sesuai dengan yang ada di 'https://dummyjson.com/users'.
+
     ```
-        alert("Welcome to my world," + " " + nameInput)
-        location.replace("../html/AboutMe.html"); // redirect to aboutme page
+    // code ini adalah bagian dari function formValidation (nomor 2). Diletakkan di akhir fungsi.
+
+    if(pesanPassword.text() === "Everything's OK" && pesanNama.text() === "Everything's OK"){
+                let url = "https://dummyjson.com/auth/login"
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    contentType: "application/json",
+                    data: JSON.stringify ({
+                        username: nameInput,
+                        password: passwordInput,
+                    }),
+                    success: function(response) {  // Status 200, show alert and redirect
+                    console.log(response);
+                    alert("Welcome to my world," + " " + nameInput);
+                    location.replace("../html/AboutMe.html");
+                    },
+                    error: function(error) { // status 400
+                    console.log(error);
+                    alert("Login failed. Please, insert the right username or password");
+                    }
+                });
+            } 
     ```
-2. Hasil :
-    ![Capslock](/src/img/screenshot/alert.png)
+
+Hasil :
+![Alert](/src/img/screenshot/alert.png)
+
+### Update Halaman About Me
+
+coming soon
+
+         
