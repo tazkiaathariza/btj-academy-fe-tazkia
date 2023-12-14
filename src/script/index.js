@@ -137,6 +137,15 @@ $(document).ready(function() {
         $("#logo").css("transform", `rotate(${degree}deg)`);
     })
 
+    // animation in my photo 
+
+    $("#myphoto").on("click", function() {
+        $(this).animate({ opacity: 0 }, 1000, function() { // fade out animation
+          // Reset the opacity
+          $(this).css("opacity", 1).animate({ opacity: 1 }, 1000);
+        });
+      });
+
 });
 
 // just checking the list of user
