@@ -218,7 +218,15 @@ Bila user berhasil submit, maka akan langsung muncul alert dan otomatis redirect
                     alert("Login failed. Please, insert the right username or password");
                     }
                 });
-            } 
+            }     
+    ```
+
+Untuk check username dan password user yang bisa digunakan untuk login, bisa cek di console. Code :
+
+    ```
+        fetch('https://dummyjson.com/users')
+        .then(res => res.json())
+        .then(console.log);
     ```
 
 Hasil :
