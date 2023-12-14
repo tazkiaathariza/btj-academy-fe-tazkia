@@ -35,7 +35,7 @@ File eksternal JS disertakan pada akhir file html dengan script :
     ```
     <script src="../script/index.js"></script>
     ```
-Jquery CDN disertakan langsung pada tag head HTML :
+jQuery CDN disertakan langsung pada tag head HTML :
 
     ```
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -188,6 +188,7 @@ Ketika user mulai typing, akan muncul validasi di bawah box input untuk memandu 
     ```
 
 Hasil :
+
 ![Validasi Nama](/src/img/screenshot/panduannama.png)
 
 ### Tambahkan penggunaan fake API dan redirect ke halaman About Me!
@@ -221,10 +222,24 @@ Bila user berhasil submit, maka akan langsung muncul alert dan otomatis redirect
     ```
 
 Hasil :
+
 ![Alert](/src/img/screenshot/alert.png)
 
 ### Update Halaman About Me
 
-coming soon
+Membuat animasi yang diaplikasikan pada foto diri. Ketika diklik, foto akan memudar kemudian kembali lagi (opacity penuh) secara otomatis. Code : 
+
+    ```
+    $("#myphoto").on("click", function() {
+        $(this).animate({ opacity: 0 }, 1000, function() { // fade out animation
+          // Reset the opacity to the maximum
+          $(this).css("opacity", 1).animate({ opacity: 1 }, 1000); //
+        });
+      });
+
+    ```
+Preview hasil (lebih baik coba langsung untuk melihat animasinya):
+
+![Alert](/src/img/screenshot/jquery.png)
 
          
